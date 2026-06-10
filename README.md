@@ -122,24 +122,23 @@ first automatically (they must already be present in the bench). insights provid
 ## Demo data (for evaluation)
 
 To try the app without building everything by hand, load the bundled demo: two Insights
-dashboards (under one workbook), the `Sales Dashboard Viewer` / `Purchase Dashboard Viewer` roles,
-three sidebar configs under **Buying**, three test users, and the doc-shares they need.
+dashboards (under one workbook), the `Procurement Lead` / `Purchase Analyst` roles, three sidebar
+configs under **Buying**, two test users, and the doc-shares they need.
 
 ```bash
 bench --site <site> execute insights_sidebar.demo.install.install
 ```
 
-This creates three users (password `Test@1234`), each showing a different slice under the
-*Insights Dashboards* section of the **Buying** workspace:
+This creates two users (password `Test@1234`). Both have access to the **Buying** workspace, but
+the *role* decides which dashboard link appears under the *Insights Dashboards* section:
 
-| User | Sees |
-|---|---|
-| `sales.tester@example.com` | Sales Dashboard, All Hands KPIs |
-| `purchase.tester@example.com` | Purchase Dashboard, All Hands KPIs |
-| `basic.tester@example.com` | All Hands KPIs only |
+| User | Role | Sees |
+|---|---|---|
+| `procurement.lead@example.com` | Procurement Lead | Procurement Overview, Team KPIs |
+| `purchase.analyst@example.com` | Purchase Analyst | Spend Analysis, Team KPIs |
 
-Log in as each, open **Buying**, and click a link — the dashboard renders in place. Remove the
-demo data with:
+*Team KPIs* has no roles, so both see it (empty roles = all users). Log in as each, open **Buying**,
+and click a link — the dashboard renders in place. Remove the demo data with:
 
 ```bash
 bench --site <site> execute insights_sidebar.demo.install.uninstall

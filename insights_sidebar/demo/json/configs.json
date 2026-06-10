@@ -1,20 +1,20 @@
 [
 	{
-		"label": "Sales Dashboard",
+		"label": "Procurement Overview",
 		"workspace": "Buying",
 		"dashboard_title": "Users Overview",
 		"position": 1,
-		"roles": ["Sales Dashboard Viewer"]
+		"roles": ["Procurement Lead"]
 	},
 	{
-		"label": "Purchase Dashboard",
+		"label": "Spend Analysis",
 		"workspace": "Buying",
 		"dashboard_title": "Roles Overview",
 		"position": 2,
-		"roles": ["Purchase Dashboard Viewer"]
+		"roles": ["Purchase Analyst"]
 	},
 	{
-		"label": "All Hands KPIs",
+		"label": "Team KPIs",
 		"workspace": "Buying",
 		"dashboard_title": "Users Overview",
 		"position": 3,

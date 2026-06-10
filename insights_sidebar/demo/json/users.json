@@ -1,17 +1,12 @@
 [
 	{
-		"email": "sales.tester@example.com",
-		"first_name": "Sales",
-		"roles": ["Sales Dashboard Viewer"]
+		"email": "procurement.lead@example.com",
+		"first_name": "Procurement Lead",
+		"roles": ["Insights User", "Purchase User", "Procurement Lead"]
 	},
 	{
-		"email": "purchase.tester@example.com",
-		"first_name": "Purchase",
-		"roles": ["Purchase Dashboard Viewer"]
-	},
-	{
-		"email": "basic.tester@example.com",
-		"first_name": "Basic",
-		"roles": []
+		"email": "purchase.analyst@example.com",
+		"first_name": "Purchase Analyst",
+		"roles": ["Insights User", "Purchase User", "Purchase Analyst"]
 	}
 ]

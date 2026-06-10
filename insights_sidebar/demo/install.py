@@ -18,7 +18,6 @@ from insights.insights.doctype.insights_workbook.insights_workbook import import
 
 WORKBOOK_TITLE = "Insights Sidebar Demo"
 DEMO_PASSWORD = "Test@1234"
-BASE_ROLES = ["Purchase User", "Insights User"]  # Buying visibility + Insights APIs
 
 
 def install():
@@ -103,7 +102,7 @@ def create_users():
 			).insert()
 
 		assigned = {r.role for r in user.roles}
-		for role in BASE_ROLES + row["roles"]:
+		for role in row["roles"]:
 			if role not in assigned:
 				user.append("roles", {"role": role})
 		user.save()
@@ -114,7 +113,7 @@ def create_users():
 def share_dashboards(users):
 	# share each dashboard with the users who are allowed to see its sidebar link
 	for user in users:
-		roles = set(BASE_ROLES) | set(user["roles"])
+		roles = set(user["roles"])
 		for config in _data("configs"):
 			if config["roles"] and not roles.intersection(config["roles"]):
 				continue
