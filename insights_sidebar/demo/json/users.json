@@ -1,0 +1,17 @@
+[
+	{
+		"email": "sales.tester@example.com",
+		"first_name": "Sales",
+		"roles": ["Sales Dashboard Viewer"]
+	},
+	{
+		"email": "purchase.tester@example.com",
+		"first_name": "Purchase",
+		"roles": ["Purchase Dashboard Viewer"]
+	},
+	{
+		"email": "basic.tester@example.com",
+		"first_name": "Basic",
+		"roles": []
+	}
+]

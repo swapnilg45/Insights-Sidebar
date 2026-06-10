@@ -1,0 +1,14 @@
+.insights-hidden {
+	display: none !important;
+}
+
+.insights-dashboard-wrap {
+	margin: 0;
+}
+
+.insights-dashboard-frame {
+	display: block;
+	width: 100%;
+	height: calc(100vh - var(--navbar-height) - var(--page-head-height) - 1px);
+	border: none;
+}

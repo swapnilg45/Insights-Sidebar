@@ -1,9 +1,9 @@
 [project]
 name = "insights_sidebar"
 authors = [
-    { name = "Swapnil", email = "swapnil.ghadi066@gmail.com"}
+    { name = "Swapnil Ghadigaonkar", email = "swapnil.ghadi066@gmail.com"}
 ]
-description = "This is a custom app."
+description = "Role-based Insights dashboard links injected into the workspace sidebar, rendered in-place inside the Desk."
 requires-python = ">=3.14"
 readme = "README.md"
 dynamic = ["version"]

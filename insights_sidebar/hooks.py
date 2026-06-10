@@ -1,14 +1,17 @@
 app_name = "insights_sidebar"
 app_title = "Insights Sidebar"
-app_publisher = "Swapnil"
-app_description = "This is a custom app."
+app_publisher = "Swapnil Ghadigaonkar"
+app_description = "Role-based Insights dashboard links injected into the workspace sidebar, rendered in-place inside the Desk."
 app_email = "swapnil.ghadi066@gmail.com"
 app_license = "mit"
 
 # Apps
 # ------------------
 
-# required_apps = []
+# insights provides the "Insights Dashboard v3" DocType this app links to;
+# erpnext provides the workspaces (e.g. Buying) the dashboard links attach under.
+# Both are installed before this app (bench installs required apps first).
+required_apps = ["frappe/erpnext", "frappe/insights"]
 
 # Each item in the list will be shown as an app in the apps page
 # add_to_apps_screen = [
@@ -25,8 +28,8 @@ app_license = "mit"
 # ------------------
 
 # include js, css files in header of desk.html
-# app_include_css = "/assets/insights_sidebar/css/insights_sidebar.css"
-# app_include_js = "/assets/insights_sidebar/js/insights_sidebar.js"
+app_include_css = "/assets/insights_sidebar/css/insights_sidebar.css"
+app_include_js = "/assets/insights_sidebar/js/insights_sidebar.js"
 
 # include js, css files in header of web template
 # web_include_css = "/assets/insights_sidebar/css/insights_sidebar.css"

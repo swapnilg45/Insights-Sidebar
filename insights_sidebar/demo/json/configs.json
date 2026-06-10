@@ -1,0 +1,23 @@
+[
+	{
+		"label": "Sales Dashboard",
+		"workspace": "Buying",
+		"dashboard_title": "Users Overview",
+		"position": 1,
+		"roles": ["Sales Dashboard Viewer"]
+	},
+	{
+		"label": "Purchase Dashboard",
+		"workspace": "Buying",
+		"dashboard_title": "Roles Overview",
+		"position": 2,
+		"roles": ["Purchase Dashboard Viewer"]
+	},
+	{
+		"label": "All Hands KPIs",
+		"workspace": "Buying",
+		"dashboard_title": "Users Overview",
+		"position": 3,
+		"roles": []
+	}
+]

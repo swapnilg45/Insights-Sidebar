@@ -1,0 +1,157 @@
+{
+ "version": "1.0",
+ "timestamp": "2026-06-10 09:24:25.067382",
+ "type": "Workbook",
+ "name": 2,
+ "doc": {
+  "name": 2,
+  "title": "Insights Sidebar Demo"
+ },
+ "dependencies": {
+  "folders": [],
+  "queries": {
+   "6fulor9rsm": {
+    "name": "6fulor9rsm",
+    "title": "Users Overview Query",
+    "workbook": "2",
+    "folder": null,
+    "sort_order": 0,
+    "use_live_connection": 1,
+    "is_script_query": 0,
+    "is_builder_query": 1,
+    "is_native_query": 0,
+    "operations": [
+     {
+      "table": {
+       "data_source": "Site DB",
+       "table_name": "tabUser",
+       "type": "table"
+      },
+      "type": "source"
+     }
+    ]
+   },
+   "6fur1h3hcj": {
+    "name": "6fur1h3hcj",
+    "title": "Roles Overview Query",
+    "workbook": "2",
+    "folder": null,
+    "sort_order": 0,
+    "use_live_connection": 1,
+    "is_script_query": 0,
+    "is_builder_query": 1,
+    "is_native_query": 0,
+    "operations": [
+     {
+      "table": {
+       "data_source": "Site DB",
+       "table_name": "tabRole",
+       "type": "table"
+      },
+      "type": "source"
+     }
+    ]
+   }
+  },
+  "charts": {
+   "6fu5soh5kf": {
+    "name": "6fu5soh5kf",
+    "title": "Total Users",
+    "workbook": "2",
+    "folder": null,
+    "sort_order": 0,
+    "query": "6fulor9rsm",
+    "chart_type": "Number",
+    "config": {
+     "comparison": false,
+     "decimal": "0",
+     "filters": {
+      "filters": [],
+      "logical_operator": "And"
+     },
+     "limit": 100,
+     "number_columns": [
+      {
+       "aggregation": "count",
+       "column_name": "name",
+       "data_type": "String",
+       "label": "count(*)",
+       "measure_name": "Total Users"
+      }
+     ],
+     "order_by": [],
+     "sparkline": false
+    }
+   },
+   "6fuk431fi3": {
+    "name": "6fuk431fi3",
+    "title": "Total Roles",
+    "workbook": "2",
+    "folder": null,
+    "sort_order": 0,
+    "query": "6fur1h3hcj",
+    "chart_type": "Number",
+    "config": {
+     "comparison": false,
+     "decimal": "0",
+     "filters": {
+      "filters": [],
+      "logical_operator": "And"
+     },
+     "limit": 100,
+     "number_columns": [
+      {
+       "aggregation": "count",
+       "column_name": "name",
+       "data_type": "String",
+       "label": "count(*)",
+       "measure_name": "Total Roles"
+      }
+     ],
+     "order_by": [],
+     "sparkline": false
+    }
+   }
+  },
+  "dashboards": {
+   "6fuu2jbukb": {
+    "name": "6fuu2jbukb",
+    "title": "Users Overview",
+    "workbook": "2",
+    "items": [
+     {
+      "chart": "6fu5soh5kf",
+      "layout": {
+       "h": 4,
+       "i": "6fu5soh5kf",
+       "moved": false,
+       "w": 20,
+       "x": 0,
+       "y": 0
+      },
+      "type": "chart"
+     }
+    ]
+   },
+   "6fueh444c0": {
+    "name": "6fueh444c0",
+    "title": "Roles Overview",
+    "workbook": "2",
+    "items": [
+     {
+      "chart": "6fuk431fi3",
+      "layout": {
+       "h": 4,
+       "i": "6fuk431fi3",
+       "moved": false,
+       "w": 20,
+       "x": 0,
+       "y": 0
+      },
+      "type": "chart"
+     }
+    ]
+   }
+  }
+ }
+}
