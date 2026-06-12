@@ -18,6 +18,17 @@ insights_sidebar.Sidebar = class Sidebar {
 		this.patch_workspace();
 		this.bind_clicks();
 		this.bind_realtime();
+		this.bind_routing();
+	}
+
+	bind_routing() {
+		// Returning to a workspace that was the last one shown skips Workspace.show_page
+		// (it short-circuits as "already shown"), so a dashboard embedded earlier would
+		// linger. Whenever the route lands on a workspace with no dashboard in its URL,
+		// clear any embedded dashboard so the plain workspace shows.
+		frappe.router.on("change", () => {
+			if (this.current_workspace() && !this.config_from_url()) this.close();
+		});
 	}
 
 	bind_realtime() {
@@ -170,17 +181,32 @@ insights_sidebar.Sidebar = class Sidebar {
 		const link = this.links_by_config[config];
 		if (!link) return;
 
-		const ws = frappe.workspace;
-		const on_workspace =
-			ws && ws._page && (ws._page.name || "").toLowerCase() === link.workspace.toLowerCase();
-
-		if (on_workspace) {
-			// same route, so show_page won't fire — render directly
+		const target = link.workspace.toLowerCase();
+		if ((this.current_workspace() || "").toLowerCase() === target) {
+			// already viewing this workspace — render in place
 			this.show_dashboard(config);
-		} else {
-			this.pending_config = config;
-			frappe.set_route(frappe.router.slug(link.workspace));
+			return;
 		}
+
+		// Coming from a list/form view or another workspace. Route to the workspace;
+		// our show_page hook then renders it. But if this workspace was the last one
+		// shown, Workspace.show() short-circuits ("already shown") and show_page never
+		// fires — its DOM is still mounted, so render once the route brings it back.
+		this.pending_config = config;
+		const ws = frappe.workspace;
+		if (ws && ws._page && (ws._page.name || "").toLowerCase() === target) {
+			frappe.router.once("change", () => this.restore());
+		}
+		frappe.set_route(frappe.router.slug(link.workspace));
+	}
+
+	current_workspace() {
+		// frappe.workspace is a singleton whose _page lingers after you navigate away,
+		// so the displayed page must come from the route, not that stale object.
+		// /desk/<ws> => ["Workspaces", name]; /desk/private/<ws> => ["Workspaces", "private", name]
+		const route = frappe.get_route() || [];
+		if (route[0] !== "Workspaces") return null;
+		return route[route[1] === "private" ? 2 : 1] || null;
 	}
 
 	restore() {
